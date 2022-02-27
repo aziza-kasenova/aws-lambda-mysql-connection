@@ -1,0 +1,11 @@
+{
+  "name": "aws-lambda-mysql-connection",
+  "version": "1.0.0",
+  "description": "An example of a MySQL connection in AWS Lambda. ",
+  "main": "index.js",
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "mysql": "2.18.1"
+  }
+}

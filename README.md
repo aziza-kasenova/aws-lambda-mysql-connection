@@ -1,2 +1,3 @@
 # aws-lambda-mysql-connection
-Example of a MySQL connection in AWS Lmabda
+
+A singleton example of a MySQL connection in AWS Lambda in Node.js
