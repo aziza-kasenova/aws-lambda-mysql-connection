@@ -6,50 +6,50 @@ let instance = null;
  * @class {ConnectionService}
  */
 class ConnectionService {
-	/**
-	 * @param {object} credentials
-	 * @param {string} tableName
-	 * @returns {*}
-	 */
-	constructor (credentials, tableName) {
-		if (instance) {
-			return instance;
-		}
+    /**
+     * @param {object} credentials
+     * @param {string} tableName
+     * @returns {*}
+     */
+    constructor (credentials, tableName) {
+        if (instance) {
+            return instance;
+        }
 
-		this.credentials = credentials;
-		ConnectionService.myConnection = this.connect(tableName);
+        this.credentials = credentials;
+        ConnectionService.myConnection = this.connect(tableName);
 
-		instance = this;
+        instance = this;
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * @returns {void}
-	 */
-	static disconnect () {
-		ConnectionService.myConnection.destroy();
-		ConnectionService.myConnection = null;
+    /**
+     * @returns {void}
+     */
+    static disconnect () {
+        ConnectionService.myConnection.destroy();
+        ConnectionService.myConnection = null;
 
-		instance = null;
-	}
+        instance = null;
+    }
 
-	/**
-	 * @param {string} databaseName
-	 * @returns {Connection}
-	 */
-	connect (databaseName) {
-		const { host, user, password } = this.credentials.database;
+    /**
+     * @param {string} databaseName
+     * @returns {Connection}
+     */
+    connect (databaseName) {
+        const { host, user, password } = this.credentials.database;
 
-		return mysql.createConnection({ host, user, password, database: databaseName, charset: 'utf8mb4' });
-	}
+        return mysql.createConnection({ host, user, password, database: databaseName, charset: 'utf8mb4' });
+    }
 
-	/**
-	 * @returns {Connection}
-	 */
-	static get tableConnection () {
-		return ConnectionService.myConnection;
-	}
+    /**
+     * @returns {Connection}
+     */
+    static get tableConnection () {
+        return ConnectionService.myConnection;
+    }
 }
 
 ConnectionService.myConnection = null;
