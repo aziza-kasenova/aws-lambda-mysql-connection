@@ -7,7 +7,7 @@ const ConnectionService = require('./services/ConnectionService');
  * @returns {Promise<void>}
  */
 exports.handler = async (event, context, callback) => {
-	try {
+    try {
         // get your parameters, tableName and open a connection
         await new ConnectionService(parameters, tableName);
 
